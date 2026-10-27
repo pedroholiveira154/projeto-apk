@@ -1,0 +1,132 @@
+
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Conceitos e Exemplos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <h1>Conceitos fundamentais</h1>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>1. Imagem Docker</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>
+        É um modelo que contém os arquivos e as
+        instruções necessários para criar um container.
+      </p>
+
+      <p><strong>Exemplo:</strong></p>
+      <p>
+        A imagem Nginx contém o servidor web Nginx,
+        que pode ser utilizado para disponibilizar
+        páginas e aplicações web.
+      </p>
+
+      <ion-text color="primary">
+        <code>docker pull nginx</code>
+      </ion-text>
+
+      <p>
+        Esse comando baixa a imagem Nginx para o
+        computador.
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>2. Container</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>
+        É uma instância executável de uma imagem Docker.
+        Nele, uma aplicação pode ser executada de
+        maneira isolada.
+      </p>
+
+      <p><strong>Exemplo:</strong></p>
+      <p>
+        Depois de baixar a imagem Nginx, podemos
+        iniciar um container para disponibilizar
+        uma página web na porta 8080 do computador.
+      </p>
+
+      <ion-text color="primary">
+        <code>docker run -d -p 8080:80 nginx</code>
+      </ion-text>
+
+      <p>
+        Depois, acesse http://localhost:8080 no navegador.
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>3. Dockerfile</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>
+        É um arquivo de texto que define instruções
+        para construir uma imagem personalizada.
+      </p>
+
+      <p><strong>Exemplo:</strong></p>
+
+      <p>Crie um arquivo chamado Dockerfile com:</p>
+
+      <pre><code>FROM nginx:alpine
+COPY index.html /usr/share/nginx/html/index.html
+EXPOSE 80</code></pre>
+
+      <p>
+        Esse arquivo utiliza a imagem Nginx Alpine
+        e copia uma página HTML para o servidor web.
+      </p>
+
+      <p>Para construir a imagem, execute:</p>
+
+      <ion-text color="primary">
+        <code>docker build -t meu-site .</code>
+      </ion-text>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>4. Docker Compose</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>
+        Permite definir e executar aplicações formadas
+        por vários serviços usando um arquivo YAML.
+      </p>
+
+      <p><strong>Exemplo:</strong></p>
+      <p>
+        Um sistema pode utilizar um serviço para o site
+        e outro para o banco de dados.
+      </p>
+
+      <p>Com um arquivo compose.yaml configurado:</p>
+
+      <ion-text color="primary">
+        <code>docker compose up -d</code>
+      </ion-text>
+
+      <p>
+        Esse comando inicia os serviços definidos
+        no arquivo.
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
